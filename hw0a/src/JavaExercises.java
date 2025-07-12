@@ -13,6 +13,12 @@ public class JavaExercises {
      */
     public static void starTriangle() {
         // TODO: Fill in this function
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println("\n");
+        }
     }
 
     /**
@@ -21,7 +27,14 @@ public class JavaExercises {
      */
     public static void printIndexed(String s) {
         // TODO: Fill in this function
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            char letter = s.charAt(i);
+            int n = length - i - 1;
+            System.out.println("" + letter + n);
+        }
     }
+
 
     /**
      * Returns a new string where each character of the given string is repeated twice.
@@ -29,7 +42,12 @@ public class JavaExercises {
      */
     public static String stutter(String s) {
         // TODO: Fill in this function
-        return null;
+        StringBuilder newString = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char letter = s.charAt(i);
+            newString.append(letter).append(letter);
+        }
+        return newString.toString();
     }
 
     /**
@@ -40,9 +58,22 @@ public class JavaExercises {
      *   3 for the third quadrant (x < 0, y < 0),
      *   4 for the fourth quadrant (x > 0, y < 0),
      *   0 if the point lies on an axis.
+     *   @param x The x coordinate of the point.
+     *   @param y The y coordinate of the point.
+     *   @return The quadrant number (1, 2, 3, 4).
      */
     public static int quadrant(int x, int y) {
         // TODO: Fill in this function
+        if (x > 0 && y > 0) {
+            return 1;
+        } else if (x < 0 && y > 0) {
+            return 2;
+        } else if (x < 0 && y < 0) {
+            return 3;
+        } else if (x > 0 && y < 0){
+            return 4;
+        }
+        // This case is not well-defined for the axes
         return 0;
     }
 
@@ -52,7 +83,7 @@ public class JavaExercises {
         System.out.println(stutter("hello"));
         System.out.println(quadrant(3, 4));  // Output: 1
         System.out.println(quadrant(-3, 4)); // Output: 2
-        System.out.println(quadrant(-3, -4));// Output: 3
+        System.out.println(quadrant(-3, -4)); // Output: 3
         System.out.println(quadrant(3, -4)); // Output: 4
         System.out.println(quadrant(0, 5));  // Output: 0
     }
